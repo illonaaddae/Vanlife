@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Challenge: Fetch and map over the data to display it on
@@ -39,15 +40,17 @@ export default function Vans() {
 
     return (
       <div key={id} className="van-tile">
-        <img src={imageUrl} />
-        <div className="van-info">
-          <h3>{name}</h3>
-          <p>
-            ${price}
-            <span>/day</span>
-          </p>
-        </div>
-        <i className={`van-type ${type} selected`}>{type}</i>
+        <Link to={`/vans/${id}`} aria-label={`View details for ${van.id}`}>
+          <img src={imageUrl} />
+          <div className="van-info">
+            <h3>{name}</h3>
+            <p>
+              ${price}
+              <span>/day</span>
+            </p>
+          </div>
+          <i className={`van-type ${type} selected`}>{type}</i>
+        </Link>
       </div>
     );
   });
