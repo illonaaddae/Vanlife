@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 
 export default function HostLayout() {
-  const activeStyles  = {
+  const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
@@ -12,6 +12,7 @@ export default function HostLayout() {
       <nav className="host-nav">
         <NavLink
           to="/host"
+          end
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Dashboard
@@ -22,6 +23,13 @@ export default function HostLayout() {
           style={({ isActive }) => (isActive ? activeStyles : null)}
         >
           Income
+        </NavLink>
+
+        <NavLink
+          to="/host/vans"
+          style={({ isActive }) => (isActive ? activeStyles : null)}
+        >
+          Vans
         </NavLink>
 
         <NavLink
